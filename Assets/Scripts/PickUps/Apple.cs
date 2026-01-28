@@ -4,14 +4,18 @@ public class Apple : Pickup
 {
     [SerializeField] float adjustChangeMoveSpeedAmount = 3f;
 
-    LevelGenerator levelGenerator;
-    private void Start()
+    LevelGenerator _levelGenerator;
+    /*private void Start()
     {
         levelGenerator = FindFirstObjectByType<LevelGenerator>();
+    }*/
+    public void Init(LevelGenerator levelGenerator)
+    {
+        this._levelGenerator = levelGenerator;
     }
     protected override void OnPickup()
     {
         //Debug.Log("add 100 points");
-        levelGenerator.ChangeChunkMoveSpeed(adjustChangeMoveSpeedAmount);
+        _levelGenerator.ChangeChunkMoveSpeed(adjustChangeMoveSpeedAmount);
     }
 }
